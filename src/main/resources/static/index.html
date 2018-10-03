@@ -109,7 +109,7 @@
     	    			      ctx.arc(50, 150, radius, 0, 2 * Math.PI, false);
     	    			      ctx.arc(50, 150, 25, 0, 2 * Math.PI, false);
     	    			      if(stateName == "start"){
-    	    			    	 	ctx.lineWidth = 5
+    	    			    	 	//ctx.lineWidth = 5
     	    			    	  	ctx.strokeStyle = '#003300';
     	    			    	  	ctx.fillStyle = "green";
     	    			    	  	ctx.fill();
@@ -122,13 +122,18 @@
     	    			      /*Delta start,0*/
     	    			      ctx.beginPath();
     	    			      ctx.moveTo(80,150);
-    	    			      ctx.lineTo(130, 150);
+    	    			      ctx.lineTo(125, 150);
+    	    			      ctx.moveTo(130, 150);
+    	    			      ctx.lineTo(125, 155);
+    	    			      ctx.lineTo(125, 145);
     	    			      ctx.fillText("0", 105, 149);
     	    			      
     	    			      if(currentState == "start" && deltaIndex == "0"){
-    	    			    	  	ctx.lineWidth = 5
+    	    			    	  	//ctx.lineWidth = 5
+    	    			    	  	ctx.fillStyle = "blue";
     	    			    	  	ctx.strokeStyle = 'blue';
     	    			      }
+    	    			      ctx.fill();
     	    			      ctx.stroke();
     	    			      ctx.fillStyle = "black";
     	    			      ctx.strokeStyle = 'black';
@@ -137,15 +142,31 @@
     	    			      ctx.beginPath();
     	    			       ctx.moveTo(50,180);
     	    			       ctx.quadraticCurveTo(150, 260, 270, 180);
+    	    			       
     	    			       ctx.fillText("1", 150, 230)
     	    			       if(currentState == "start" && deltaIndex == "1"){
-    	    			    	   		ctx.lineWidth = 5
+    	    			    	   		//ctx.lineWidth = 5
+    	    			    	   		ctx.fillStyle = "blue";
     	   			    	  		ctx.strokeStyle = 'blue';
     	   			      	}
     	    			       ctx.stroke();
     	    			       ctx.fillStyle = "black";
     	    			       ctx.strokeStyle = 'black';
     	    			       ctx.lineWidth = 1
+    	    			       ctx.beginPath();
+    	    			       ctx.moveTo(270, 180);
+         	    		   ctx.lineTo(270, 190);
+         	    		   ctx.lineTo(260, 180);
+         	    		  if(currentState == "start" && deltaIndex == "1"){
+  			    	   		//ctx.lineWidth = 5
+  			    	   		ctx.fillStyle = "blue";
+ 			    	  		ctx.strokeStyle = 'blue';
+ 			      	   }
+         	    		   ctx.fill();
+	    			       ctx.stroke();
+	    			       ctx.fillStyle = "black";
+	    			       ctx.strokeStyle = 'black';
+	    			       ctx.lineWidth = 1
     	    			       
     	    			      /*Zero State*/
     	    			       ctx.beginPath();
@@ -154,7 +175,7 @@
     	    			      //ctx.strokeStyle = '#003300';
     	    			      ctx.fillText("Q0", 150, 200);
     	    			      if(stateName == "zero"){
-    	    			    	 	 ctx.lineWidth = 5
+    	    			    	 	 //ctx.lineWidth = 5
     	  			    	  	ctx.strokeStyle = '#003300';
     	  			    	  	ctx.fillStyle = currentState == "failed" ? "red" : "green";
     	  			    	  	ctx.fill();
@@ -168,10 +189,15 @@
     	    			      ctx.moveTo(190,150);
     	    			      ctx.fillText("1", 215, 149);
     	    			      ctx.lineTo(240, 150);
+    	    			      ctx.moveTo(240, 150);
+    	    			      ctx.lineTo(235, 155);
+    	    			      ctx.lineTo(235, 145);
     	    			      if(currentState == "zero" && deltaIndex == "1"){
-    	    			    	 		 ctx.lineWidth = 5
+    	    			    	 		//ctx.lineWidth = 5
+    	    			    	 		ctx.fillStyle = "blue";
     	 			    	  		ctx.strokeStyle = 'blue';
     	 			      }
+    	    			      ctx.fill();
     	    			      ctx.stroke();
     	    			      ctx.fillStyle = "black";
     	    			      ctx.strokeStyle = 'black';
@@ -182,13 +208,27 @@
     	    			       ctx.quadraticCurveTo(160, 0, 170, 120);
     	    			       ctx.fillText("0", 159, 105);
     	    			       if(currentState == "zero" && deltaIndex == "0"){
-    	    			    	   		ctx.lineWidth = 5
+    	    			    	   		//ctx.lineWidth = 5
     				    	  		ctx.strokeStyle = 'blue';
     				       }
     	    				   ctx.stroke();
     	    				   ctx.fillStyle = "black";
     	    				   ctx.strokeStyle = 'black';
     	    				   ctx.lineWidth = 1
+    	    				   ctx.beginPath();
+    	    			       ctx.moveTo(170, 120);
+         	    		   ctx.lineTo(165, 115);
+         	    		   ctx.lineTo(175, 115);
+         	    		  if(currentState == "zero" && deltaIndex == "0"){
+  			    	   		//ctx.lineWidth = 5
+  			    	   		ctx.fillStyle = "blue";
+ 			    	  		ctx.strokeStyle = 'blue';
+ 			      	   }
+         	    		   ctx.fill();
+	    			       ctx.stroke();
+	    			       ctx.fillStyle = "black";
+	    			       ctx.strokeStyle = 'black';
+	    			       ctx.lineWidth = 1
     	    			       /* One  State*/
     	    			      ctx.beginPath();
     	    			      ctx.arc(270, 150, radius, 0, 2 * Math.PI, false);
@@ -197,7 +237,7 @@
     	    			      ctx.fillText("Q1", 260, 200);
     	    			      if(stateName == "one"){
     	    			    	  	//ctx.strokeStyle = '#003300';
-    	    			    	  	ctx.lineWidth = 5
+    	    			    	  	//ctx.lineWidth = 5
     	    			    	  	ctx.fillStyle = currentState == "failed" ? "red" : "green";
     	    			    	  	ctx.fill();
     	    			      }
@@ -211,32 +251,48 @@
     	    			       ctx.quadraticCurveTo(270, 0, 280, 120);
     	    			       ctx.fillText("1", 269, 105);
     	    			       if(currentState == "one" && deltaIndex == "0"){
-    	    			    	   		ctx.lineWidth = 5
+    	    			    	   		//ctx.lineWidth = 5
     				    	  		ctx.strokeStyle = 'blue';
     				       };
     	    				   ctx.stroke();
     	    				   ctx.fillStyle = "black";
-     	    			      ctx.strokeStyle = 'black';
-     	    			      ctx.lineWidth = 1
+     	    			   ctx.strokeStyle = 'black';
+     	    			   ctx.lineWidth = 1
+	    				   ctx.beginPath();
+	    			       ctx.moveTo(280, 120);
+     	    		   	   ctx.lineTo(285, 115);
+     	    		       ctx.lineTo(275, 115);
+	     	    		  if(currentState == "one" && deltaIndex == "0"){
+				    	   		//ctx.lineWidth = 5
+				    	   		ctx.fillStyle = "blue";
+				    	  		ctx.strokeStyle = 'blue';
+				        }
+	     	    		   ctx.fill();
+	    			       ctx.stroke();
+	    			       ctx.fillStyle = "black";
+	    			       ctx.strokeStyle = 'black';
+	    			       ctx.lineWidth = 1
     	    				   /* Delta one,1*/
     	    			       ctx.beginPath();
     	    			       ctx.moveTo(270,180);
     	    			       ctx.lineTo(270, 230);
+    	    			       ctx.moveTo(270,230);
+    	    			       ctx.lineTo(265,225);
+    	    			       ctx.lineTo(275,225);
     	    			       ctx.fillText("0", 275, 205);
     	    			       if(currentState == "one" && deltaIndex == "1"){
-    	    			    	   		ctx.lineWidth = 5
+    	    			    	   		//ctx.lineWidth = 5
     				    	  		ctx.strokeStyle = 'red';
     				       };
+    				       ctx.fill();
     	    				   ctx.stroke();
     	    			       /* Fail  State*/
     	    			      ctx.beginPath();
     	    			      ctx.arc(270, 260, radius, 0, 2 * Math.PI, false);
-    	    			     
-    	    			      //ctx.strokeStyle = '#003300';
-    	    			      ctx.fillText("Failed", 260, 310);
+    	    			      ctx.fillText("Failed", 310, 260);
     	    			      if(stateName == "failedState"){
     	    			    	  	//ctx.strokeStyle = '#003300';
-    	    			    	  	ctx.lineWidth = 5
+    	    			    	  	//ctx.lineWidth = 5
     	    			    	  	ctx.fillStyle = "red";
     	    			    	  	ctx.fill();
     	    			      }
@@ -244,10 +300,37 @@
     	    			      ctx.fillStyle = "black";
     	    			      ctx.strokeStyle = 'black';
     	    			      ctx.lineWidth = 1
+    	    			      /* fail state self loop*/
+   	    			       ctx.beginPath();
+   	    			       ctx.moveTo(260,290);
+   	    			       ctx.quadraticCurveTo(270, 410, 280, 290);
+   	    			       ctx.fillText("0,1", 285, 305);
+   	    			       if(currentState == "failedState" && deltaIndex == "0"){
+   	    			    	   		//ctx.lineWidth = 5
+   				    	  		ctx.strokeStyle = 'red';
+   				       };
+   	    				   ctx.stroke();
+   	    				   ctx.fillStyle = "black";
+    	    			       ctx.strokeStyle = 'black';
+    	    			       ctx.lineWidth = 1
+    	    			       ctx.beginPath();
+     	    			   ctx.moveTo(280,290);
+     	    			   ctx.lineTo(285,295);
+     	    			   ctx.lineTo(275,295);
+     	    			   if(currentState == "failedState" && deltaIndex == "0"){
+     	    			    	   		//ctx.lineWidth = 5
+     	    			    	   ctx.fillStyle = 'red';
+     				    	   ctx.strokeStyle = 'red';
+     				   };
+     				   ctx.fill();
+     	    			   ctx.stroke();
+     	    			   ctx.fillStyle = "black";
+      	    			   ctx.strokeStyle = 'black';
+      	    			   ctx.lineWidth = 1
     			      }
     			      ctx.beginPath();
     				  if(currentState == "failed"){
-    					  ctx.lineWidth = 5
+    					  //ctx.lineWidth = 5
     					  ctx.fillStyle = "red";
     					  ctx.fillText("REJECTED", 150, 230);
     					  ctx.stroke();
@@ -255,7 +338,7 @@
     					  disconnect();
     				  }
     				  if(currentState == "Accepted"){
-    					  ctx.lineWidth = 5
+    					  //ctx.lineWidth = 5
     					  ctx.fillStyle = "green";
     					  ctx.fillText("ACCEPTED", 150, 230);
     					  ctx.stroke();
@@ -283,42 +366,54 @@
    	    			      var radius = 30;
    	    			      /*Start State*/
    	    			      ctx.beginPath();
-   	    			      ctx.arc(50, 150, radius, 0, 2 * Math.PI, false);
-   	    			     if(stateName == "start"){
-   	    			    	 	ctx.lineWidth = 5
-   	    			    	  	ctx.strokeStyle = '#003300';
-   	    			    	  	ctx.fillStyle = "green";
-   	    			    	  	ctx.fill();
-   	    			      }
-   	    			      ctx.fillText("Start", 40, 200);
+   	    			   	  ctx.moveTo(30,150);
+	    			      ctx.lineTo(50, 150);
+   	    			      //ctx.arc(50, 150, radius, 0, 2 * Math.PI, false);
+//    	    			     if(stateName == "start"){
+//    	    			    	 	ctx.lineWidth = 5
+//    	    			    	  	ctx.strokeStyle = '#003300';
+//    	    			    	  	ctx.fillStyle = "green";
+//    	    			    	  	ctx.fill();
+//    	    			      }
+   	    			      ctx.fillText("Start", 30, 160);
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
    	    			      ctx.lineWidth = 1
    	    			      /*Delta start,0*/
    	    			      ctx.beginPath();
-   	    			      ctx.moveTo(65,125);
-   	    			      ctx.lineTo(115, 75);
+   	    			      ctx.moveTo(50,150);
+   	    			      ctx.lineTo(115,75);
+   	    			   	  ctx.moveTo(115,75);
+   	    			  	  ctx.lineTo(115,85);
+   	    			  	  ctx.lineTo(105,75);
    	    			      ctx.fillText("b", 79, 100);
    	    			      
    	    			      if(currentState == "start" && deltaIndex == "0"){
-   	    			    	  	ctx.lineWidth = 5
+   	    			    	  	//ctx.lineWidth = 5
+   	    			    	    ctx.fillStyle = 'blue';
    	    			    	  	ctx.strokeStyle = 'blue';
    	    			      }
+   	    			      ctx.fill();
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
    	    			      ctx.lineWidth = 1
    	    			      /* Delta start,1*/
    	    			      ctx.beginPath();
-   	    			      ctx.moveTo(65,175);
+   	    			      ctx.moveTo(50,150);
    	    			      ctx.lineTo(115,225);
+   	    			      ctx.moveTo(115,225);
+	    			  	  ctx.lineTo(115,215);
+	    			  	  ctx.lineTo(105,225);
    	    			      ctx.fillText("a", 79, 200);
    	    			      
    	    			      if(currentState == "start" && deltaIndex == "1"){
-   	    			    	  	ctx.lineWidth = 5
+   	    			    	  	//ctx.lineWidth = 5
+   	    			    	  	ctx.fillStyle = 'blue';
    	    			    	  	ctx.strokeStyle = 'blue';
    	    			      }
+   	    			      ctx.fill();
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
@@ -345,10 +440,15 @@
    	    			      ctx.moveTo(175,65);
    	    			      ctx.fillText("b", 225, 64);
    	    			      ctx.lineTo(275, 65);
+   	    			   	  ctx.moveTo(275, 65);
+   	    			   	  ctx.lineTo(270, 60);
+   	    			      ctx.lineTo(270, 70);
    	    			      if(currentState == "AddB" && deltaIndex == "0"){
-   	    			    	 		 ctx.lineWidth = 5
+   	    			    	 		 //ctx.lineWidth = 5
+   	    			    	 		ctx.fillStyle = 'blue';
    	 			    	  		ctx.strokeStyle = 'blue';
-   	 			      		}
+   	 			      }
+   	    			      ctx.fill();
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
@@ -358,10 +458,15 @@
    	    			       ctx.moveTo(145,95);
    	    			       ctx.fillText("a", 147, 145);
    	    			       ctx.lineTo(145, 195);
+    	    			   	   ctx.moveTo(145, 195);
+       	    			   ctx.lineTo(150, 190);
+       	    			   ctx.lineTo(140, 190);
    	    			       if(currentState == "AddB" && deltaIndex == "1"){
-   	    			    	   		ctx.lineWidth = 5
+   	    			    	   		//ctx.lineWidth = 5
+   	    			    	   		ctx.fillStyle = 'blue';
    				    	  		ctx.strokeStyle = 'blue';
    				       }
+   	    			       ctx.fill();
    	    				   ctx.stroke();
    	    				   ctx.fillStyle = "black";
    	    				   ctx.strokeStyle = 'black';
@@ -385,28 +490,38 @@
    	    			      /* Delta EvenB,0*/
    	    			       ctx.beginPath();
    	    			       ctx.moveTo(275,75);
-                      ctx.fillText("b", 220, 80);
-   	    			       ctx.lineTo(175, 75);
+                       ctx.fillText("b", 220, 80);
+   	    			       ctx.lineTo(175,75);
+   	    			       ctx.moveTo(175,75);
+   	    			    	   ctx.lineTo(180,70);
+   	    			       ctx.lineTo(180,80);
    	    			       if(currentState == "EvenB" && deltaIndex == "0"){
-   	    			    	   		ctx.lineWidth = 5
-   				    	  			ctx.strokeStyle = 'blue';
-   				       		};
+   	    			    	   		//ctx.lineWidth = 5
+   	    			    	   		ctx.fillStyle = 'blue';
+   				    	  		ctx.strokeStyle = 'blue';
+   				       	};
+   				       ctx.fill();
    	    				   ctx.stroke();
-                    ctx.fillStyle = "black";
-   	    			     ctx.strokeStyle = 'black';
-   	    			     ctx.lineWidth = 1;
+                      ctx.fillStyle = "black";
+   	    			      ctx.strokeStyle = 'black';
+   	    			      ctx.lineWidth = 1;
                     
                       /* Delta EvenB,1*/
    	    			       ctx.beginPath();
    	    			       ctx.moveTo(325,85);
-                      ctx.fillText("a", 350, 115);
-   	    			       ctx.lineTo(370, 145);
+                       ctx.fillText("a", 350, 115);
+   	    			       ctx.lineTo(370,145);
+   	    			       ctx.moveTo(370,145);
+   	    			    	   ctx.lineTo(360,145);
+   	    			       ctx.lineTo(370,135);
    	    			       if(currentState == "EvenB" && deltaIndex == "1"){
-   	    			    	   		ctx.lineWidth = 5
-   				    	  				ctx.strokeStyle = 'red';
-   				       		};
+   	    			    	   		//ctx.lineWidth = 5
+   	    			    	   		ctx.fillStyle = 'red';
+   				    	  		ctx.strokeStyle = 'red';
+   				       	};
+   				       ctx.fill();
    	    				   ctx.stroke();
-                    ctx.fillStyle = "black";
+                     ctx.fillStyle = "black";
    	    			     ctx.strokeStyle = 'black';
    	    			     ctx.lineWidth = 1;
                     
@@ -417,7 +532,7 @@
    	    			      //ctx.strokeStyle = '#003300';
    	    			      ctx.fillText("AddA", 135, 265);
    	    			      if(stateName == "AddA"){
-   	    			    	 	 ctx.lineWidth = 5
+   	    			    	 	ctx.lineWidth = 5
    	  			    	  	ctx.strokeStyle = '#003300';
    	    			    	 	ctx.fillStyle = currentState == "failed" ? "red" : "green";
    	  			    	  	ctx.fill();
@@ -430,11 +545,16 @@
    	    			      ctx.beginPath();
    	    			      ctx.moveTo(175,225);
    	    			      ctx.fillText("a", 225, 224);
-   	    			      ctx.lineTo(275, 225);
+   	    			      ctx.lineTo(275,225);
+   	    			      ctx.moveTo(275,225);
+   	    			      ctx.lineTo(270,230);
+   	    			      ctx.lineTo(270,220);
    	    			      if(currentState == "AddA" && deltaIndex == "0"){
-   	    			    	 		 ctx.lineWidth = 5
+   	    			    	 		 //ctx.lineWidth = 5
+   	    			    	 		ctx.fillStyle = 'blue';
    	 			    	  		ctx.strokeStyle = 'blue';
-   	 			      		}
+   	 			      }
+   	    			      ctx.fill();
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
@@ -447,12 +567,25 @@
    	    			       if(currentState == "AddA" && deltaIndex == "1"){
    	    			    	   		ctx.lineWidth = 5
    				    	  		    ctx.strokeStyle = 'red';
-   				          }
+   				        }
    	    				   ctx.stroke();
    	    				   ctx.fillStyle = "black";
    	    				   ctx.strokeStyle = 'black';
    	    				   ctx.lineWidth = 1
-                    
+   	    				   ctx.beginPath();
+   	    			       ctx.moveTo(400,180);
+   	    			    	   ctx.lineTo(390,180);
+ 	    			       ctx.lineTo(400,190);
+ 	    			      if(currentState == "AddA" && deltaIndex == "1"){
+	    			    	   		//ctx.lineWidth = 5
+	    			    	   		ctx.fillStyle = 'red';
+				    	  		ctx.strokeStyle = 'red';
+				        }
+ 	    			      ctx.fill();
+  	    			      ctx.stroke();
+  	    			      ctx.fillStyle = "black";
+  	    			      ctx.strokeStyle = 'black';
+  	    			      ctx.lineWidth = 1
                      /* Even A state */
    	    			      ctx.beginPath();
    	    			      ctx.arc(305, 225, radius, 0, 2 * Math.PI, false);
@@ -472,12 +605,17 @@
    	    			      /* Delta EvenA,0*/
    	    			       ctx.beginPath();
    	    			       ctx.moveTo(275,235);
-                      ctx.fillText("a", 220, 240);
+                       ctx.fillText("a", 220, 240);
    	    			       ctx.lineTo(175, 235);
+   	    			       ctx.moveTo(175, 235);
+   	    			    	   ctx.lineTo(180, 230);
+   	    			       ctx.lineTo(180, 240);
    	    			       if(currentState == "EvenA" && deltaIndex == "0"){
-   	    			    	   		ctx.lineWidth = 5
-   				    	  			ctx.strokeStyle = 'blue';
-   				       		};
+   	    			    	   		//ctx.lineWidth = 5
+   	    			    	   		ctx.fillStyle = 'blue';
+   				    	  		ctx.strokeStyle = 'blue';
+   				       };
+   				       ctx.fill();
    	    				   ctx.stroke();
                     ctx.fillStyle = "black";
    	    			     ctx.strokeStyle = 'black';
@@ -486,12 +624,17 @@
                       /* Delta EvenA,1*/
    	    			       ctx.beginPath();
    	    			       ctx.moveTo(325,205);
-                      ctx.fillText("b", 327, 190);
+                        ctx.fillText("b", 327, 190);
    	    			       ctx.lineTo(370, 160);
+   	    			       ctx.moveTo(370, 160);
+   	    			       ctx.lineTo(360, 160);
+   	    			       ctx.lineTo(370, 170);
    	    			       if(currentState == "EvenA" && deltaIndex == "1"){
-   	    			    	   		ctx.lineWidth = 5
-   				    	  				ctx.strokeStyle = 'red';
-   				       		};
+   	    			    	   		//ctx.lineWidth = 5
+   	    			    	   		ctx.fillStyle = 'red';
+   				    	  		ctx.strokeStyle = 'red';
+   				       };
+   				       ctx.fill();
    	    				   ctx.stroke();
                     ctx.fillStyle = "black";
    	    			     ctx.strokeStyle = 'black';
@@ -554,28 +697,33 @@
    	    			      var radius = 30;
    	    			      /*Start State*/
    	    			      ctx.beginPath();
-   	    			      ctx.arc(50, 150, radius, 0, 2 * Math.PI, false);
-   	    			      if(stateName == "start"){
-   	    			    	 	ctx.lineWidth = 5
-   	    			    	  	ctx.strokeStyle = '#003300';
-   	    			    	  	ctx.fillStyle = "green";
-   	    			    	  	ctx.fill();
-   	    			      }
-   	    			      ctx.fillText("Start", 40, 200);
+//    	    			      ctx.arc(50, 150, radius, 0, 2 * Math.PI, false);
+//    	    			      if(stateName == "start"){
+//    	    			    	 	ctx.lineWidth = 5
+//    	    			    	  	ctx.strokeStyle = '#003300';
+//    	    			    	  	ctx.fillStyle = "green";
+//    	    			    	  	ctx.fill();
+//    	    			      }
+   	    			      ctx.fillText("Start", 50, 160);
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
    	    			      ctx.lineWidth = 1
    	    			      /*Delta start,0*/
    	    			      ctx.beginPath();
-   	    			      ctx.moveTo(80,150);
+   	    			      ctx.moveTo(50,150);
    	    			      ctx.lineTo(130, 150);
+   	    			      ctx.moveTo(130, 150);
+	    			      ctx.lineTo(125, 145);
+	    			      ctx.lineTo(125, 155);
    	    			      ctx.fillText("ε,0", 105, 149);
    	    			      
    	    			      if(currentState == "start" && (deltaIndex == "0" || deltaIndex == "2")){
-   	    			    	  	ctx.lineWidth = 5
+   	    			    	  	//ctx.lineWidth = 5
+   	    			    	  	ctx.fillStyle = 'blue';
    	    			    	  	ctx.strokeStyle = 'blue';
    	    			      }
+   	    			  	  ctx.fill();
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
@@ -602,10 +750,15 @@
    	    			      ctx.moveTo(190,150);
    	    			      ctx.fillText("ε,1", 215, 149);
    	    			      ctx.lineTo(240, 150);
+   	    			      ctx.moveTo(240, 150);
+	    			      ctx.lineTo(235, 145);
+	    			      ctx.lineTo(235, 155);
    	    			      if(currentState == "zero" && (deltaIndex == "1" || deltaIndex == "2")){
-   	    			    	 		 ctx.lineWidth = 5
+   	    			    	 		 //ctx.lineWidth = 5
+   	    			    	 		ctx.fillStyle = 'blue';
    	 			    	  		ctx.strokeStyle = 'blue';
    	 			      }
+   	    			      ctx.fill();
    	    			      ctx.stroke();
    	    			      ctx.fillStyle = "black";
    	    			      ctx.strokeStyle = 'black';
@@ -623,6 +776,20 @@
    	    				   ctx.fillStyle = "black";
    	    				   ctx.strokeStyle = 'black';
    	    				   ctx.lineWidth = 1
+   	    				   ctx.beginPath();
+   	    			       ctx.moveTo(170,120);
+   	    			       ctx.lineTo(165,115);
+	    			       ctx.lineTo(175,115);
+	    			       if(currentState == "zero" && deltaIndex == "0"){
+	    			    	   		//ctx.lineWidth = 5
+	    			    	   		ctx.fillStyle = 'blue';
+				    	  		ctx.strokeStyle = 'blue';
+				       }
+	    			       ctx.fill();
+	    				   ctx.stroke();
+	    				   ctx.fillStyle = "black";
+	    				   ctx.strokeStyle = 'black';
+	    				   ctx.lineWidth = 1
    	    			       /* One  State*/
    	    			      ctx.beginPath();
    	    			      ctx.arc(270, 150, radius, 0, 2 * Math.PI, false);
@@ -651,15 +818,35 @@
    	    				  ctx.fillStyle = "black";
  	    			      ctx.strokeStyle = 'black';
  	    			      ctx.lineWidth = 1
+  	    				   ctx.lineWidth = 1
+   	    				   ctx.beginPath();
+   	    			       ctx.moveTo(280,120);
+   	    			       ctx.lineTo(285,115);
+	    			       ctx.lineTo(275,115);
+	    			       if(currentState == "one" && deltaIndex == "0"){
+	    			    	   		//ctx.lineWidth = 5
+	    			    	   		ctx.fillStyle = 'blue';
+				    	  		ctx.strokeStyle = 'blue';
+				       }
+	    			       ctx.fill();
+	    				   ctx.stroke();
+	    				   ctx.fillStyle = "black";
+	    				   ctx.strokeStyle = 'black';
+	    				   ctx.lineWidth = 1
    	    				   /* Delta one,1*/
    	    			       ctx.beginPath();
    	    			       ctx.moveTo(300,150);
    	    			       ctx.lineTo(350,150);
+   	    			       ctx.moveTo(350,150);
+	    			       ctx.lineTo(345,145);
+	    			       ctx.lineTo(345,155);
    	    			       ctx.fillText("0", 325, 149);
    	    			       if(currentState == "one" && deltaIndex == "1"){
-   	    			    	   		ctx.lineWidth = 5
+   	    			    	   		//ctx.lineWidth = 5
+   	    			    	   		ctx.fillStyle = 'blue';
    				    	  		ctx.strokeStyle = 'blue';
    				       };
+   				       ctx.fill();
    	    				   ctx.stroke();
    	    				   ctx.fillStyle = "black";
   	    			       ctx.strokeStyle = 'black';

@@ -25,6 +25,10 @@ public class DFAUtil {
 		oneState.getDelta().put("1", new DFARelation(0, oneState));/* to one state*/
 		oneState.getDelta().put("0", new DFARelation(1, failedState));/* to one state*/
 		oneState.setFailedState(failedState);
+		/* failed state delta and failed state*/
+		failedState.getDelta().put("1", new DFARelation(0, failedState));/* to one state*/
+		failedState.getDelta().put("0", new DFARelation(0, failedState));/* to one state*/
+		failedState.setFailedState(failedState);
 		return startState;
 	}
 	
