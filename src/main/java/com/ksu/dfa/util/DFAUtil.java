@@ -40,8 +40,8 @@ public class DFAUtil {
 		DFAState evenAState = new DFAState("EvenA", true);
 		DFAState failedState = new DFAState("failedState",false);
 		/* Start State delta and failed state*/
-		startState.getDelta().put("b", new DFARelation(0, addBState)); /* to addB state*/
-		startState.getDelta().put("a", new DFARelation(1, addAState)); /* to addA state*/
+		startState.getDelta().put("any", new DFARelation(0, evenBState)); /* to addB state*/
+		//startState.getDelta().put("a", new DFARelation(1, addAState)); /* to addA state*/
 		startState.setFailedState(failedState); /* to failed state*/
 		/* AddB State delta and failed state*/
 		addBState.getDelta().put("b", new DFARelation(0, evenBState)); /* to evenB state*/
@@ -59,6 +59,10 @@ public class DFAUtil {
 		evenAState.getDelta().put("a", new DFARelation(0, addAState));/* to addA state*/
 		evenAState.getDelta().put("b", new DFARelation(1, failedState));/* to failed state*/
 		evenAState.setFailedState(failedState);
+		failedState.setFailedState(failedState);
+		/* failed state delta and failed state*/
+		failedState.getDelta().put("a", new DFARelation(0, failedState));/* to one state*/
+		failedState.getDelta().put("b", new DFARelation(0, failedState));/* to one state*/
 		failedState.setFailedState(failedState);
 		return startState;
 	}

@@ -32,7 +32,7 @@ public class DFAHandler extends TextWebSocketHandler{
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		String[] textMessage = message.getPayload().split(",");
 		String name = textMessage[0];
-		String input = textMessage[1];
+		String input = textMessage.length == 2 ? textMessage[1] : "";
 		DFAState currentState = null;
 		switch(name) {
 			case "zeroStartOneStar" :
