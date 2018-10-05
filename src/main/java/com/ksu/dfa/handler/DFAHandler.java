@@ -51,29 +51,34 @@ public class DFAHandler extends TextWebSocketHandler{
 			Thread.sleep(1000);
 			char c = input.charAt(i);
 			DFARelation relation = null;
+			boolean skip = false;
 			if(i == input.length() - 1) {
 				relation = currentState.getDelta().get("any");
 				if(relation != null) {
 					session.sendMessage(new TextMessage(name + "," +currentState.getName()+","+relation.getIndex()+"," + relation.getState().getName()));
 					currentState = relation.getState();
-					Thread.sleep(1000);
+					i = i-1;
+					skip = true;
 				}
 			}
-			relation = currentState.getDelta().get(""+c);
-			if(relation == null) {
-				relation = currentState.getDelta().get("any");
-				if(relation != null) {
+			if(!skip) {
+				relation = currentState.getDelta().get(""+c);
+				if(relation == null) {
+					relation = currentState.getDelta().get("any");
+					if(relation != null) {
+						session.sendMessage(new TextMessage(name + "," +currentState.getName()+","+relation.getIndex()+"," + relation.getState().getName()));
+						currentState = relation.getState();
+						i = i-1;
+					}else {
+						currentState = currentState.getFailedState();
+						session.sendMessage(new TextMessage(name + "," +currentState.getName()+","+0+"," + currentState.getName()));
+					}
+					
+				}else {
 					session.sendMessage(new TextMessage(name + "," +currentState.getName()+","+relation.getIndex()+"," + relation.getState().getName()));
 					currentState = relation.getState();
-					i = i-1;
-				}else {
-					currentState = currentState.getFailedState();
-					session.sendMessage(new TextMessage(name + "," +currentState.getName()+","+0+"," + currentState.getName()));
+					
 				}
-				
-			}else {
-				session.sendMessage(new TextMessage(name + "," +currentState.getName()+","+relation.getIndex()+"," + relation.getState().getName()));
-				currentState = relation.getState();
 				
 			}
 			
